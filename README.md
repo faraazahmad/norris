@@ -1,6 +1,6 @@
 # Norris
 
-An elixir package that returns chuck norris jokes from [Chuck Norris API](api.chucknorris.io)
+An elixir package that returns chuck norris jokes from [Chuck Norris API](https://api.chucknorris.io)
 
 ## Installation
 

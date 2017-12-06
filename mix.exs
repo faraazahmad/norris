@@ -8,13 +8,10 @@ defmodule Norris.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps(),
+     package: package(),
      name: "Norris",
      description: description(),
-     source_url: "https://github.com/faraazahmad/norris",
-     files: ["lib", "priv", "mix.exs", "README*", "LICESNCE*"],
-     maintainers: ["Syed Faraaz Ahmad"],
-     licenses: ["MIT"],
-     links: %{"Github" => "https://github.com/faraazahmad/norris"}
+     source_url: "https://github.com/faraazahmad/norris"
     ]
   end
 
@@ -22,6 +19,16 @@ defmodule Norris.Mixfile do
   defp description do
     "A small package that accesses the chuck norris API
     and returns a random chuck norris fact"
+  end
+
+  # Some metadata about the package for Hex
+  defp package do
+    [
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["Syed Faraaz Ahmad"],
+      licenses: ["MIT"],
+      links: %{"Github" => "https://github.com/faraazahmad/norris"}
+    ]
   end
 
   # Configuration for the OTP application
@@ -43,8 +50,9 @@ defmodule Norris.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      { :tesla, "~> 0.9.0" },
-      { :poison, "~> 3.1" }
+      {:tesla, "~> 0.9.0"},
+      {:poison, "~> 3.1"},
+      {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
 end

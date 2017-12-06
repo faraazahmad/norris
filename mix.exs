@@ -10,7 +10,11 @@ defmodule Norris.Mixfile do
      deps: deps(),
      name: "Norris",
      description: description(),
-     source_url: "https://github.com/faraazahmad/norris"
+     source_url: "https://github.com/faraazahmad/norris",
+     files: ["lib", "priv", "mix.exs", "README*", "LICESNCE*"],
+     maintainers: ["Syed Faraaz Ahmad"],
+     licenses: ["MIT"],
+     links: %{"Github" => "https://github.com/faraazahmad/norris"}
     ]
   end
 
@@ -18,16 +22,6 @@ defmodule Norris.Mixfile do
   defp description do
     "A small package that accesses the chuck norris API
     and returns a random chuck norris fact"
-  end
-
-  # Some metadata about the package for Hex
-  defp package do
-    [
-      files: ["lib", "priv", "mix.exs", "README*", "LICESNCE*"],
-      maintainers: ["Syed Faraaz Ahmad"],
-      licenses: ["MIT"],
-      links: %{"Github" => "https://github.com/faraazahmad/norris"}
-    ]
   end
 
   # Configuration for the OTP application

@@ -4,10 +4,20 @@ defmodule Norris.Mixfile do
   def project do
     [app: :norris,
      version: "0.1.0",
-     elixir: "~> 1.4",
+     elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     name: "Norris",
+     description: description(),
+     source_url: "https://github.com/faraazahmad/norris"
+    ]
+  end
+
+  # A smal  description about this package
+  defp description do
+    "A small package that accesses the chuck norris API
+    and returns a random chuck norris fact"
   end
 
   # Configuration for the OTP application

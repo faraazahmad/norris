@@ -20,6 +20,16 @@ defmodule Norris.Mixfile do
     and returns a random chuck norris fact"
   end
 
+  # Some metadata about the package for Hex
+  defp package do
+    [
+      files: ["lib", "priv", "mix.exs", "README*", "LICESNCE*"],
+      maintainers: ["Syed Faraaz Ahmad"],
+      licenses: ["MIT"],
+      links: %{"Github" => "https://github.com/faraazahmad/norris"}
+    ]
+  end
+
   # Configuration for the OTP application
   #
   # Type "mix help compile.app" for more information

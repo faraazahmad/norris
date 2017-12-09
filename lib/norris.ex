@@ -1,15 +1,11 @@
 defmodule Norris do
   @moduledoc """
-  Documentation for Norris. This is a simple package
-  that gets a chuck norris fact from api.chucknorris.io
+    Documentation for Norris. This is a simple package
+    that gets chuck norris fact(s) from api.chucknorris.io
   """
 
   @doc """
-      Send a request to chucknorris.io API
-      to get a random(uncategorised) fact, 
-      which returns a json string, 
-      then decode the json string into a Map. 
-      Then return the joke string.
+    Returns a Chuck Norris fact/joke on a random topic
   """
   def random do
     response = 
@@ -20,5 +16,37 @@ defmodule Norris do
     {:ok, struct} = Poison.decode response
 
     struct["value"]
+  end
+
+  @doc """
+    Returns a list of all categories of facts/jokes
+    provided by the API 
+  """
+  def categories do
+    response = 
+      "https://api.chucknorris.io/jokes/categories"
+        |> Tesla.get()
+
+    response = response.body
+    {:ok, category_list} = Poison.decode response
+
+    category_list
+  end
+
+  @doc """
+    Return a joke based on a provided category, if the category
+    does not exist return :error
+  """
+  def joke(category) do
+    response = 
+      "https://api.chucknorris.io/jokes/random?category=#{category}"
+        |> Tesla.get()
+
+    response = Poison.decode(response.body)
+
+    case response do
+      {:ok, result} -> result["value"]
+      _ -> "Error: Either category does not exist or there is a network error"
+    end
   end
 end
